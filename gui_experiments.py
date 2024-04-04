@@ -1,20 +1,15 @@
 import functions
 import PySimpleGUI as sg
 import time
-import os
-
-## como crear archivo ejecutable pyinstaller --onefile --wondowed --clean gui.py
-
-if not os.path.exists("todos.txt"):
-    with open("todos.txt", "w") as file:
-        pass
 
 sg.theme("Black")
+
 
 clock = sg.Text('', key ='clock')
 label = sg.Text("Type in a to-do")
 input_box = sg.InputText(tooltip = "Enter todo", key="todo")
-add_button = sg.Button("Add")
+add_button = sg.Button(key="Add", size =10, image_source="./images/add.png", 
+                       mouseover_colors="LightBlue2", tooltip="Add Todo")
 
 list_box = sg.Listbox(values=functions.get_todos(), key='todos', 
                       enable_events=True, size=[45, 10])
